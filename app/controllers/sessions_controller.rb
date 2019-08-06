@@ -36,7 +36,7 @@ class SessionsController < ApplicationController
         if session[:user_id]
         else
           flash[:error] = "You must be logged in to access this section"
-          redirect_to '/' # halts request cycle
+          redirect_to '/'
         end
     end
 
