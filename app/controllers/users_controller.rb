@@ -18,11 +18,6 @@ class UsersController < ApplicationController
 
     private
 
-    # def logged_in?
-    #     if session[:user_id]
-    #     end
-    # end
-
     def require_login
         if session[:user_id]
         else
