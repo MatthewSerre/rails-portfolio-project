@@ -2,9 +2,9 @@ class CreateEvents < ActiveRecord::Migration[5.2]
   def change
     create_table :events do |t|
       t.string :name
-      t.datetime :date
-      t.datetime :start_time
-      t.datetime :end_time
+      t.date :date
+      t.time :start_time
+      t.time :end_time
       t.string :description
       t.string :location
       t.belongs_to :user, foreign_key: true

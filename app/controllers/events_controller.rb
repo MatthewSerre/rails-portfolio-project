@@ -8,7 +8,6 @@ class EventsController < ApplicationController
     end
 
     def create
-        binding.pry
         @event = Event.create(event_params)
         redirect_to event_path(@event)
     end
