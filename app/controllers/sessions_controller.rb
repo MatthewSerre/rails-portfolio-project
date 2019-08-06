@@ -8,20 +8,26 @@ class SessionsController < ApplicationController
         end
     end
 
+    # def create
+    #     @user = User.find_by(name: params[:user][:name])
+    #     if @user && @user.authenticate(params[:user][:password])
+    #         session[:user_id] = @user.id
+    #         redirect_to @user
+    #     else
+    #         flash[:error] = "User name or password was incorrect.  Please try again."
+    #         redirect_to new_session_url
+    #     end
+    # end
+
     def create
-        @user = User.find_by(name: params[:user][:name])
-        if @user && @user.authenticate(params[:user][:password])
-            session[:user_id] = @user.id
-            redirect_to @user
-        else
-            flash[:error] = "User name or password was incorrect.  Please try again."
-            redirect_to new_session_url
-        end
+        @user = User.find_or_create_from_auth_hash(request.env["omniauth.auth"])
+        session[:user_id] = @user.id
+        redirect_to @user
     end
 
     def destroy
         session.delete :user_id
-        redirect_to new_session_url
+        redirect_to root_path
     end
 
     private
@@ -30,7 +36,7 @@ class SessionsController < ApplicationController
         if session[:user_id]
         else
           flash[:error] = "You must be logged in to access this section"
-          redirect_to new_session_url # halts request cycle
+          redirect_to '/' # halts request cycle
         end
     end
 
