@@ -18,13 +18,14 @@ class UsersController < ApplicationController
 
     private
 
-    def logged_in?
-        if session[:user_id]
-        end
-    end
+    # def logged_in?
+    #     if session[:user_id]
+    #     end
+    # end
 
     def require_login
-        unless logged_in?
+        if session[:user_id]
+        else
           flash[:error] = "You must be logged in to access this section"
           redirect_to new_session_url # halts request cycle
         end

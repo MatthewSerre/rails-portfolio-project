@@ -10,11 +10,11 @@
   </head>
 
   <body>
-    <%= link_to "Home", "/" %> | <%= link_to "My Page", user_path(current_user) %>
+    <%= link_to "Home", "/" %> | 
     <% if session[:user_id] %>
-      <%=     link_to("| Log Out", logout_url, method: :post) %>
+      <%=     link_to("Log Out", logout_url, method: :post) %>
     <% else %>
-      <%=     link_to "| Log In", :controller => 'sessions', :action => 'new' %>
+      <%=     link_to "Log In", :controller => 'sessions', :action => 'new' %>
     <% end %>
     <%= yield %>
   </body>
