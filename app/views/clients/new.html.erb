@@ -1,8 +1,15 @@
-<h3>Create a New Client</h3>
+<h5>Create a New Client</h5>
 
 <%= form_for @client do |f| %>
-    First Name: <%= f.text_field :first_name %><br>
-    Last Name: <%= f.text_field :last_name %><br>
+    <div class="input-field col s12">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true %>
+  </div>
+  
+  <div class="input-field col s12">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true %>
+  </div>
 
     <%= f.submit "Create Client" %>
 <% end %>

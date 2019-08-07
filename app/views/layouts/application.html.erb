@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsPortfolioProject</title>
+    <title>Rails Portfolio Project</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,21 +11,32 @@
 
   <body>
     <nav>
-    <div class="nav-wrapper">
-      <%= link_to "Rails Portfolio Project", "/", class: "brand-logo" %>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
-      </ul>
-    </div>
+      <div class="nav-wrapper">
+        <ul>
+          <li>
+              <%= link_to "Home", "/" %>
+          </li>
+          <li>
+            <% if current_user %>
+              <%= link_to "My Clients", current_user %>
+            <% end %>
+          </li>
+          <li>
+            <% if current_user %>
+              <%= link_to "My Notes", current_user %>
+            <% end %>
+          </li>
+          <li>
+            <% if current_user %>
+              <%= link_to("Log Out", logout_url, method: :post) %>
+            <% else %>
+              <%= link_to "Log In", :controller => 'sessions', :action => 'new' %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
     </nav>
-    <%= link_to "Home", "/" %> | 
-    <% if session[:user_id] %>
-      <%=     link_to("Log Out", logout_url, method: :post) %>
-    <% else %>
-      <%=     link_to "Log In", :controller => 'sessions', :action => 'new' %>
-    <% end %>
     <%= yield %>
   </body>
 </html>
+  
