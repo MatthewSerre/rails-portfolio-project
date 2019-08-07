@@ -1,0 +1,10 @@
+<h3>Create a New Note</h3>
+
+<%= form_for @note do |f| %>
+    Date: <%= f.date_field :date %><br>
+    Length of Interaction (in minutes): <%= f.text_field :length_in_minutes %><br>
+    Content: <%= f.text_area :content %>
+    Staff Member: <%= f.collection_select :user_id, User.all, :id, :first_name %>
+
+    <%= f.submit "Create Note" %>
+<% end %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: MyString
+  length_in_minutes: 1
+  content: MyString
+  user: one
+  client: one
+
+two:
+  date: MyString
+  length_in_minutes: 1
+  content: MyString
+  user: two
+  client: two

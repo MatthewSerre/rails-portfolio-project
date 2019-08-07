@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
-    has_many :events
-    has_many :attendees, through: :events
+    has_many :notes
+    has_many :clients, through: :notes
 
     def self.find_or_create_from_auth_hash(auth)
 		where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|

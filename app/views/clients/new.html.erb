@@ -1,0 +1,8 @@
+<h3>Create a New Client</h3>
+
+<%= form_for @client do |f| %>
+    First Name: <%= f.text_field :first_name %><br>
+    Last Name: <%= f.text_field :first_name %><br>
+
+    <%= f.submit "Create Client" %>
+<% end %>
