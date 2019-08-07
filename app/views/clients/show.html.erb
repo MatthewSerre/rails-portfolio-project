@@ -1,2 +1,8 @@
 <%= @client.first_name %>
 <%= @client.last_name %>
+
+<ol>
+<% @client.notes.each do |note| %>
+        <li><%= link_to "#{note.date} note", client_note_path(@client, note) %> by <%= link_to note.user.first_name, user_path(note.user) %></li><br>
+<% end %>
+</ol>
