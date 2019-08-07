@@ -38,6 +38,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'pry'
 
+gem 'materialize-sass', '~> 1.0.0'
+
 gem 'omniauth-google-oauth2'
 
 group :development, :test do
