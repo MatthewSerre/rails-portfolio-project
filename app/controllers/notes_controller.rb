@@ -4,13 +4,15 @@ class NotesController < ApplicationController
     end
 
     def new
+        @client = Client.find(params[:client_id])
         @note = Note.new
     end
 
     def create
         binding.pry
-        @note = Note.create(note_params)
-        redirect_to note_path(@note)
+        @client = Client.find(params[:client_id])
+        @note = @client.notes.create(note_params)
+        redirect_to @note
     end
 
     def show

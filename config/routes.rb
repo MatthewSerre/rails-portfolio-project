@@ -3,9 +3,10 @@ Rails.application.routes.draw do
 
   root to: "sessions#new"
 
-  resources :clients
-  resources :notes
   resources :users
+  resources :clients do
+    resources :notes
+  end
 
   resources :sessions, only: [:new, :create, :destroy]
 
