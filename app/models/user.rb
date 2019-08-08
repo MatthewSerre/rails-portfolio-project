@@ -2,6 +2,13 @@ class User < ApplicationRecord
     has_secure_password
     has_many :notes
     has_many :clients, through: :notes
+    
+    before_save { self.email = email.downcase }
+    validates :first_name, presence: true
+    validates :last_name, presence: true
+    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+    validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: VALID_EMAIL_REGEX }
+    validates :password, presence: true, length: { minimum: 6 }
 
     def name
         "#{self.first_name} #{self.last_name}"
