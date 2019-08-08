@@ -2,6 +2,7 @@ class NotesController < ApplicationController
     before_action :require_login
     
     def index
+        @client = Client.find(params[:client_id])
     end
 
     def new
@@ -18,7 +19,8 @@ class NotesController < ApplicationController
     end
 
     def show
-        @note = Note.find(params[:id])
+        @client = Client.find(params[:client_id])
+        @note = @client.notes.find(params[:id])
     end
 
     def edit
