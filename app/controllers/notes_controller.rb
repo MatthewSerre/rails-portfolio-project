@@ -30,7 +30,7 @@ class NotesController < ApplicationController
             render :edit
         else
             flash[:error] = "You cannot edit another user's note."
-            redirect_to @note
+            redirect_to client_note_url(@client, @note)
         end
     end
 
