@@ -4,6 +4,6 @@
     <%= f.submit "Sign In" %><br>
 <% end %>
 <p>or</p><br>
-<%= link_to "Sign in with Google", signin_with_google_url %>
+<%= link_to image_tag("https://developers.google.com/identity/images/btn_google_signin_light_normal_web.png", border: 0), signin_with_google_url %>
 
 <%= flash[:error] %>
