@@ -1,12 +1,14 @@
-<h5>Register</h5>
-
 <%= form_for @user do |f| %>
-    First Name <%= f.text_field :first_name %>
-    Last Name <%= f.text_field :last_name %>
-    Email <%= f.email_field :email %>
-    Password <%= f.password_field :password %>
-    Password Confirmation <%= f.password_field :password_confirmation %>
-    <button class="btn waves-effect waves-light" type="submit" name="action">Register
-        <i class="material-icons right">send</i>
-    </button>
+<div class="row">
+    <div class="input-field col s6">
+        First Name <%= f.text_field :first_name %>
+        Last Name <%= f.text_field :last_name %>
+        Email <%= f.email_field :email %>
+        Password <%= f.password_field :password %>
+        Password Confirmation <%= f.password_field :password_confirmation %>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Register
+            <i class="material-icons right">send</i>
+        </button>
+    </div>
+</div>
 <% end %>

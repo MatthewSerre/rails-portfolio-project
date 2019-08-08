@@ -2,7 +2,7 @@ class User < ApplicationRecord
     has_secure_password
     has_many :notes
     has_many :clients, through: :notes
-    
+
     before_save { self.email = email.downcase }
     validates :first_name, presence: true
     validates :last_name, presence: true
@@ -28,7 +28,7 @@ class User < ApplicationRecord
 			user.last_name = auth.info.last_name
             user.email = auth.info.email
             user.password = SecureRandom.urlsafe_base64
-			user.save!
+			user.save
 		end
     end
 end

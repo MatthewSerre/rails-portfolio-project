@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     def require_login
         if session[:user_id]
         else
-          flash[:error] = "You must be logged in to access this section"
+          flash[:error] = "You must be signed in to view this page."
           redirect_to '/signin'
         end
     end

@@ -26,10 +26,24 @@ class NotesController < ApplicationController
     def edit
         @client = Client.find(params[:client_id])
         @note = Note.find(params[:client_id])
+        if @note.id == current_user.id
+            render :edit
+        else
+            flash[:error] = "You cannot edit another user's note."
+            redirect_to @note
+        end
     end
 
     def update
-
+        @client = Client.find(params[:client_id])
+        @note = Note.find(params[:client_id])
+        if @note.id == current_user.id
+            @note.update(note_params)
+            redirect_to client_note_url(@client, @note)
+        else
+            flash[:error] = "You cannot edit another user's note."
+            redirect_to client_note_url(@client, @note)
+        end
     end
 
     private
