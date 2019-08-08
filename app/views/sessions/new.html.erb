@@ -3,6 +3,6 @@
     Password <%= f.password_field :password %>
     <%= f.submit "Log In" %>
 <% end %>
-<a href="/auth/google_oauth2">Log in with Google</a>
+<%= link_to "Sign in with Google", signin_with_google_url %>
 
 <%= flash[:error] %>

@@ -10,10 +10,10 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  post '/logout', to: 'sessions#destroy', as: 'logout'
+  post '/signout', to: 'sessions#destroy', as: 'signout'
 
-  get 'signin', to: redirect('/auth/google_oauth2'), as: 'signin'
-  # get 'logout', to: 'sessions#destroy', as: 'logout'
+  get 'signin', to: 'sessions#new', as: 'signin'
+  get 'signin_with_google', to: redirect('/auth/google_oauth2'), as: 'signin_with_google'
   get 'register', to: "users#new", as: 'register'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')

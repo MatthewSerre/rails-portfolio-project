@@ -26,13 +26,18 @@
               <%= link_to "My Notes", current_user %>
             <% end %>
           </li>
+          <% if current_user %>
           <li>
-            <% if current_user %>
-              <%= link_to("Log Out", logout_url, method: :post) %>
-            <% else %>
-              <%= link_to "Log In", :controller => 'sessions', :action => 'new' %>
-            <% end %>
+            <%= link_to("Sign Out", signout_url, method: :post) %>
           </li>
+          <% else %>
+          <li>
+            <%= link_to "Register", register_url %>
+          </li>
+          <li>
+            <%= link_to "Sign In", signin_url %>
+          </li>
+          <% end %>
         </ul>
       </div>
     </nav>
