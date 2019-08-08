@@ -7,6 +7,12 @@ class User < ApplicationRecord
         "#{self.first_name} #{self.last_name}"
     end
 
+    def clients
+        self.notes.map do |note|
+            note.client
+        end
+    end
+
     def self.find_or_create_from_auth_hash(auth)
 		where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
 			user.provider = auth.provider

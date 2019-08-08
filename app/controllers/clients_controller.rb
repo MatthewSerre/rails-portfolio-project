@@ -2,6 +2,7 @@ class ClientsController < ApplicationController
     before_action :require_login
     
     def index
+        @clients = Client.all
     end
 
     def new

@@ -1,7 +1,0 @@
-<h5>All Notes for <%= @client.name %></h5>
-
-<ol>
-<% @client.notes.each do |note| %>
-        <li><%= link_to "#{note.date} note", client_note_path(@client, note) %> by <%= link_to note.user.name, user_path(note.user) %></li><br>
-<% end %>
-</ol>
