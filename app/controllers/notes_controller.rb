@@ -10,14 +10,22 @@ class NotesController < ApplicationController
     end
 
     def create
-        binding.pry
         @client = Client.find(params[:client_id])
         @note = @client.notes.create(note_params)
-        redirect_to @note
+        redirect_to client_note_url(@client, @note)
     end
 
     def show
         @note = Note.find(params[:id])
+    end
+
+    def edit
+        @client = Client.find(params[:client_id])
+        @note = Note.find(params[:client_id])
+    end
+
+    def update
+
     end
 
     private

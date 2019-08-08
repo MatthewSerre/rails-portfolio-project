@@ -9,7 +9,6 @@ class ClientsController < ApplicationController
     end
 
     def create
-        binding.pry
         @client = Client.create(client_params)
         redirect_to client_path(@client)
     end
