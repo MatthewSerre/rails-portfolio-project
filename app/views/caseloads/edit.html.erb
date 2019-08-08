@@ -1,0 +1,4 @@
+<%= form_form @caseload do |f| %>
+    <%= f.collection_check_boxes(:client_ids, Client.all, :id, :first_name) %>
+    <%= f.submit %>
+<% end %>

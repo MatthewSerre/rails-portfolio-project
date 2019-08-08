@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :clients
+    resources :caseloads
   end
 
   resources :clients do

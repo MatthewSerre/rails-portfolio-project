@@ -14,6 +14,7 @@ class UsersController < ApplicationController
         if @user.errors.any?
             render :new
         else
+            Caseload.create(user_id: @user.id)
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         end

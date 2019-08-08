@@ -10,6 +10,7 @@ class ClientsController < ApplicationController
     end
 
     def create
+        binding.pry
         @client = Client.create(client_params)
         redirect_to client_path(@client)
     end
@@ -21,7 +22,7 @@ class ClientsController < ApplicationController
     private
 
     def client_params
-        params.require(:client).permit(:first_name, :last_name)
+        params.require(:client).permit(:first_name, :last_name, :caseload_id)
     end
 
 end

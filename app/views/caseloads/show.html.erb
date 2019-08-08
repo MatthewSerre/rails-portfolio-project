@@ -1,0 +1,5 @@
+Current Clients:
+
+<% @caseload.clients.each do |client| %>
+    <%= link_to client.name, client_url(client) %>
+<% end %>

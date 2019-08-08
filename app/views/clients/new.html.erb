@@ -11,5 +11,8 @@
     <%= f.text_field :last_name, autofocus: true %>
   </div>
 
+  <%= f.label :caseload %>
+  <%= f.collection_select(:caseload_id, Caseload.all, :id, :id) %>
+
     <%= f.submit "Create Client" %>
 <% end %>
