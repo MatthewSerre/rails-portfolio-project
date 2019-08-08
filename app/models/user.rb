@@ -2,6 +2,7 @@ class User < ApplicationRecord
     has_secure_password
     has_many :notes
     has_many :clients, through: :notes
+    has_one :caseload
 
     before_save { self.email = email.downcase }
     validates :first_name, presence: true
