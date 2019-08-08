@@ -1,5 +1,0 @@
-
-
-<% current_user.clients.uniq.each do |client| %>
-    <%= link_to "#{client.name}", client_url(client) %>
-<% end %>
