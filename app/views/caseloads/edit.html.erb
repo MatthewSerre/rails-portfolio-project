@@ -1,4 +1,13 @@
-<%= form_form @caseload do |f| %>
-    <%= f.collection_check_boxes(:client_ids, Client.all, :id, :first_name) %>
-    <%= f.submit %>
+Current Clients:
+<ul>
+<% @caseload.clients.each do |client| %>
+    <li><%= link_to client.name, client_url(client) %></li>
+<% end %>
+</ul>
+
+
+<%= form_for [@user, @caseload] do |f| %>
+    <%= f.label :clients %>
+        <%= f.collection_select(:client_ids, Client.unassigned, :id, :first_name, {}, { :class => 'browser-default' }) %>
+    <%= f.submit "Add Client to Caseload" %>
 <% end %>
