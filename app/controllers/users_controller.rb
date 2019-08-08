@@ -1,16 +1,16 @@
 class UsersController < ApplicationController
     before_action :require_login
-    skip_before_action :require_login, only: [:new, :create]
+    skip_before_action :require_login, only: [:index, :new, :create]
+
+    def index
+    end
 
     def new
         @user = User.new
     end
 
     def create
-        @user = User.new(user_params)
-        @user.provider = "none"
-        @user.uid = "none"
-        @user.save
+        @user = User.create(user_params)
         session[:user_id] = @user.id
         redirect_to user_path(@user)
     end
