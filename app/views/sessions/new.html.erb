@@ -1,8 +1,9 @@
 <%= form_for(:user, url: sessions_path) do |f| %>
     Email <%= f.email_field :email %>
     Password <%= f.password_field :password %>
-    <%= f.submit "Log In" %>
+    <%= f.submit "Sign In" %><br>
 <% end %>
+<p>or</p><br>
 <%= link_to "Sign in with Google", signin_with_google_url %>
 
 <%= flash[:error] %>

@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     skip_before_action :require_login, only: [:new, :create]
 
     def new
-        if session[:user_id]
+        if current_user
             redirect_to current_user
         end
     end
@@ -28,16 +28,6 @@ class SessionsController < ApplicationController
     def destroy
         session.delete :user_id
         redirect_to root_path
-    end
-
-    private
-
-    def require_login
-        if session[:user_id]
-        else
-          flash[:error] = "You must be logged in to access this section"
-          redirect_to '/'
-        end
     end
 
 end

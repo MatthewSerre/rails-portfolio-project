@@ -21,14 +21,6 @@ class UsersController < ApplicationController
 
     private
 
-    def require_login
-        if session[:user_id]
-        else
-          flash[:error] = "You must be logged in to access this section"
-          redirect_to new_session_url # halts request cycle
-        end
-    end
-
     def user_params
         params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
