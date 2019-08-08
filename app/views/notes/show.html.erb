@@ -1,3 +1,6 @@
-<%= @note.date %>
-<%= @note.length_in_minutes %>
-<%= @note.content %>
+<h5>Note for <%= @note.client.name %></h5>
+<ul>
+    <li>Created by <%= @note.user.name %> on <%= @note.date %></li>
+    <li>Length of interaction in minutes: <%= @note.length_in_minutes %></li>
+    <li><%= @note.content %></li>
+</ul>

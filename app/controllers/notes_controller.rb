@@ -12,6 +12,8 @@ class NotesController < ApplicationController
     def create
         @client = Client.find(params[:client_id])
         @note = @client.notes.create(note_params)
+        @note.user_id = current_user.id
+        @note.save
         redirect_to client_note_url(@client, @note)
     end
 

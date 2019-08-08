@@ -2,8 +2,7 @@
     Date: <%= f.date_field :date %><br>
     Length of Interaction (in minutes): <%= f.text_field :length_in_minutes %><br>
     Content: <%= f.text_area :content %>
-    Staff Member: <%= f.collection_select :user_id, User.all, :id, :first_name %>
-    Client: <%= f.collection_select :client_id, Client.all, :id, :first_name %>
+
 
     <%= f.submit %>
 <% end %>

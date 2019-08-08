@@ -3,6 +3,10 @@ class User < ApplicationRecord
     has_many :notes
     has_many :clients, through: :notes
 
+    def name
+        "#{self.first_name} #{self.last_name}"
+    end
+
     def self.find_or_create_from_auth_hash(auth)
 		where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
 			user.provider = auth.provider
