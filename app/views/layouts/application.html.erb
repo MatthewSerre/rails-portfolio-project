@@ -10,16 +10,11 @@
   </head>
 
   <body>
-    <nav>
+    <nav class="nav-extended">
       <div class="nav-wrapper">
-        <ul>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li>
               <%= link_to "Home", "/" %>
-          </li>
-          <li>
-            <% if current_user %>
-              <%= link_to "My Clients", user_clients_url(current_user) %>
-            <% end %>
           </li>
           <% if current_user %>
           <li>
@@ -35,6 +30,14 @@
           <% end %>
         </ul>
       </div>
+      <% if current_user %>
+      <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+          <li class="tab"><%= link_to "My Account", current_user %></li>
+          <li class="tab"><%= link_to "My Clients", user_clients_url(current_user) %></li>
+        </ul>
+      </div>
+      <% end %>
     </nav>
     <%= yield %>
   </body>
