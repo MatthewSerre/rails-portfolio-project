@@ -18,12 +18,7 @@
           </li>
           <li>
             <% if current_user %>
-              <%= link_to "My Clients", current_user %>
-            <% end %>
-          </li>
-          <li>
-            <% if current_user %>
-              <%= link_to "My Notes", current_user %>
+              <%= link_to "My Clients", user_clients_url(current_user) %>
             <% end %>
           </li>
           <% if current_user %>
