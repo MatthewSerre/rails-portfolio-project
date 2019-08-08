@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 2019_08_07_185849) do
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.string "provider"
-    t.string "uid"
+    t.string "provider", default: "0"
+    t.string "uid", default: "0"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
