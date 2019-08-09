@@ -2,7 +2,7 @@ class ClientsController < ApplicationController
     before_action :require_login
     
     def index
-        @clients = current_user.clients
+        @clients = Client.all
     end
 
     def new
@@ -10,7 +10,6 @@ class ClientsController < ApplicationController
     end
 
     def create
-        binding.pry
         @client = Client.create(client_params)
         redirect_to client_path(@client)
     end

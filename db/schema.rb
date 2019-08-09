@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2019_08_08_205051) do
   create_table "clients", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.integer "caseload_id"
+    t.integer "caseload_id", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["caseload_id"], name: "index_clients_on_caseload_id"

@@ -35,7 +35,7 @@
       <div class="nav-content">
         <ul class="tabs tabs-transparent">
           <li class="tab"><%= link_to "My Account", current_user %></li>
-          <li class="tab"><%= link_to "My Caseload", user_caseloads_url(current_user) %></li>
+          <li class="tab"><%= link_to "My Caseload", user_caseload_url(current_user, current_user.caseload) %></li>
         </ul>
       </div>
       <% end %>
