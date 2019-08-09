@@ -1,13 +1,14 @@
 <ul class="collection">
-    <li class="collection-item">Current Clients</li>
+    <li class="collection-item"><h6><strong>Current Clients</strong></h6></li>
 <% @caseload.clients.each do |client| %>
-    <li><%= link_to client.name, client_url(client) %></li>
+    <li class="collection-item"><%= link_to client.name, client_url(client) %></li>
 <% end %>
 </ul>
 
 
 <%= form_for [@user, @caseload] do |f| %>
-    <%= f.label :clients %>
-        <%= f.collection_select(:client_ids, Client.unassigned, :id, :first_name, {}, { :class => 'browser-default' }) %>
-    <%= f.submit "Add Client to Caseload" %>
+        <%= f.collection_select(:client_ids, Client.unassigned, :id, :name, {}, { :class => 'browser-default' }) %>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Add Selected Client to Caseload
+        <i class="material-icons right">send</i>
+    </button>
 <% end %>
