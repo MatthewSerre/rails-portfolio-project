@@ -8,6 +8,6 @@ class Client < ApplicationRecord
     end
 
     def self.unassigned
-        Client.where("caseload_id = 0")
+        where(caseload_id: nil)
     end
 end
