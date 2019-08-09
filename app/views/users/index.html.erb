@@ -1,1 +1,5 @@
-<h6>Welcome! Register a new account or sign in!</h6>
+<% if current_user %>
+    <h6>Welcome to your home page, <%= current_user.name %>!</h6>
+<% else %>
+    <h6>Welcome! Register a new account or sign in!</h6>
+<% end %>

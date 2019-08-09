@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
             if @user.errors.any?
                 render "/sessions/new"
             else
-                Caseload.create(user_id: @user.id)
+                Caseload.find_or_create_by(user_id: @user.id)
                 session[:user_id] = @user.id
                 redirect_to @user
             end

@@ -42,31 +42,37 @@
     </nav>
     <%= yield %>
 
+
     <% if @user && @user.errors.any? %>
-      <ul>
-          <% @user.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-          <% end %>
+      <ul class="collection">
+        <li class="collection-item">One or more errors occurred:</li>
+        <% @user.errors.full_messages.each do |message| %>
+          <li class="collection-item"><%= message %></li>
+        <% end %>
+      </ul>
+    <% elsif @note && @note.errors.any? %>
+      <ul class="collection">
+      <li class="collection-item">One or more errors occurred:</li>
+        <% @note.errors.full_messages.each do |message| %>
+          <li class="collection-item"><%= message %></li>
+        <% end %>
+      </ul>
+    <% elsif @client && @client.errors.any? %>
+      <ul class="collection">
+      <li class="collection-item">One or more errors occurred:</li>
+        <% @client.errors.full_messages.each do |message| %>
+          <li class="collection-item"><%= message %></li>
+        <% end %>
       </ul>
     <% end %>
 
-    <% if @note && @note.errors.any? %>
-    <ul>
-        <% @note.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-        <% end %>
-    </ul>
-  <% end %>
 
-  <% if @client && @client.errors.any? %>
-  <ul>
-      <% @client.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-      <% end %>
-  </ul>
-<% end %>
-
-    <%= flash[:error] %>
+    <% if flash[:error] %>
+      <ul class="collection">
+        <li class="collection-item">One or more errors occurred:</li>
+        <li class="collection-item"><%= flash[:error] %></li>
+      </ul>
+    <% end %>
   </body>
 </html>
   

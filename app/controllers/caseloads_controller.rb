@@ -2,6 +2,7 @@ class CaseloadsController < ApplicationController
     before_action :require_login
 
     def index
+        @caseloads = Caseload.all
     end
 
     def edit

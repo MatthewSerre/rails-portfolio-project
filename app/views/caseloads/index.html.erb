@@ -1,1 +1,5 @@
-# All caseloads maybe?
+<ul class="collection">
+<% @caseloads.each do |caseload| %>
+    <li class="collection-item"><%= link_to "#{caseload.user.name}'s caseload", user_caseload_url(caseload.user, caseload) %></li>
+<% end %>
+</ul>
