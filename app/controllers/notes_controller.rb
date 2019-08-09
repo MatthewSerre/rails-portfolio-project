@@ -12,10 +12,15 @@ class NotesController < ApplicationController
 
     def create
         @client = Client.find(params[:client_id])
-        @note = @client.notes.create(note_params)
+        @note = @client.notes.new(note_params)
         @note.user_id = current_user.id
+        binding.pry
         @note.save
-        redirect_to client_note_url(@client, @note)
+        if @note.errors.any?
+            render :new
+        else
+            redirect_to client_note_url(@client, @note)
+        end
     end
 
     def show

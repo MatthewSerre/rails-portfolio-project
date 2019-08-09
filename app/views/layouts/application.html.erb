@@ -50,6 +50,14 @@
       </ul>
     <% end %>
 
+    <% if @note && @note.errors.any? %>
+    <ul>
+        <% @note.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+  <% end %>
+
     <%= flash[:error] %>
   </body>
 </html>
