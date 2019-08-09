@@ -1,6 +1,9 @@
-<h5>Note for <%= @note.client.name %></h5>
-<ul>
-    <li>Created by <%= @note.user.name %> on <%= @note.date %></li>
-    <li>Length of interaction in minutes: <%= @note.length_in_minutes %></li>
-    <li><%= @note.content %></li>
+<ul class="collection">
+    <li class="collection-item"><h6><strong>Note for <%= @note.client.name %></strong></h6></li>
+    <li class="collection-item">For interaction with <%= link_to @note.user.name, @note.user %> on <%= @note.date %></li>
+    <li class="collection-item">Note first created on <%= @note.created_at %></li>
+    <li class="collection-item">Note last updated on <%= @note.updated_at %></li>
+    <li class="collection-item"><%= @note.length_in_minutes %> minutes</li>
+    <li class="collection-item"><%= @note.content %></li>
 </ul>
+

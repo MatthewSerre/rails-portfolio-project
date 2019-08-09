@@ -1,6 +1,8 @@
-<%= link_to "Client Notes", client_notes_url(@client) %>
+<ul class="collection">
 <% if @client.caseload %>
-    <%= link_to "Case Manager", user_caseload_url(@client.caseload) %>
+    <li class="collection-item">Case Manager: <%= link_to @client.caseload.user.name    , user_caseload_url(@client.caseload) %></li>
 <% else %>
-    "Unassigned to a caseload"
+    <li class="collection-item">"Unassigned"</li>
 <% end %>
+<li class="collection-item"><%= link_to "Client Notes", client_notes_url(@client) %></li>
+</ul>
