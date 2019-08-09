@@ -1,24 +1,23 @@
-# README
+# Case Manager on Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Case Manager on Rails is the tentative title for my Rails portfolio project for the Flatiron School online curriculum.  Case Manager allows users to register and sign in and create, read, update, and delete a variety of models, including clients, notes, and caseloads.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+Fork and clone the repository to your local device.
 
-* System dependencies
+### Installing
 
-* Configuration
+Run bundle install to install the gems necessary for the app to run and run rails s to spin up a server.
 
-* Database creation
+## Contributing
 
-* Database initialization
+Contributions and suggestions are welcome; just open an issue on the repository page and I will have a look.  Thank you!
 
-* How to run the test suite
+## Authors
 
-* Services (job queues, cache servers, search engines, etc.)
+* **Matthew Serre** - *Initial work* - [BusterStatus](https://github.com/BusterStatus)
 
-* Deployment instructions
+## License
 
-* ...
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
