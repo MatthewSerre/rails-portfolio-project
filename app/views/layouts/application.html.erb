@@ -58,6 +58,14 @@
     </ul>
   <% end %>
 
+  <% if @client && @client.errors.any? %>
+  <ul>
+      <% @client.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+      <% end %>
+  </ul>
+<% end %>
+
     <%= flash[:error] %>
   </body>
 </html>

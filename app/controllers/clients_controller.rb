@@ -11,7 +11,25 @@ class ClientsController < ApplicationController
 
     def create
         @client = Client.create(client_params)
-        redirect_to client_path(@client)
+        if @client.errors.any?
+            render :new
+        else
+            redirect_to client_path(@client)
+        end
+    end
+
+    def edit
+        @client = Client.find(params[:id])
+    end
+
+    def update
+        @client = Client.find(params[:id])
+        @client.update(client_params)
+        if @client.errors.any?
+            render :edit
+        else
+            redirect_to client_path(@client)
+        end
     end
 
     def show

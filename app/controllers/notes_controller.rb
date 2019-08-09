@@ -14,7 +14,6 @@ class NotesController < ApplicationController
         @client = Client.find(params[:client_id])
         @note = @client.notes.new(note_params)
         @note.user_id = current_user.id
-        binding.pry
         @note.save
         if @note.errors.any?
             render :new
