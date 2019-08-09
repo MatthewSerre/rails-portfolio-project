@@ -3,6 +3,7 @@ class NotesController < ApplicationController
     
     def index
         @client = Client.find(params[:client_id])
+        @notes = @client.notes
     end
 
     def new
