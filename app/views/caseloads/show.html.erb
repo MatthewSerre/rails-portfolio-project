@@ -1,7 +1,5 @@
-Current Clients:
-
-<ol>
+<ol class="collection">
 <% @caseload.clients.each do |client| %>
-    <li><%= link_to client.name, client_url(client) %> | <%= link_to "New Note", new_client_note_url(client) %>
+    <li class="collection-item"><%= link_to client.name, client_url(client) %> | <%= link_to "New Note", new_client_note_url(client) %>
 <% end %>
 </ol>
