@@ -19,7 +19,6 @@ class ClientsController < ApplicationController
     end
 
     def unassigned
-        binding.pry
         @clients = Client.unassigned
     end
 

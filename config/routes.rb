@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: "users#index"
 
   resources :users do
-    resources :clients
+    resources :clients, except: [:show]
     resources :caseloads
   end
 

@@ -1,5 +1,1 @@
-<ul class="collection">
-<% @clients.sort_by(&:name).each do |client| %>
-    <li class="collection-item"><%= link_to "#{client.name}", client %></li>
-<% end %>
-</ul>
+<%= render partial: "list", locals: {clients: @clients} %>

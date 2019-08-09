@@ -8,7 +8,6 @@ class CaseloadsController < ApplicationController
     end
 
     def update
-        binding.pry
         @user = User.find(params[:user_id])
         @caseload = @user.caseload
         client = Client.find(params[:caseload][:client_ids])
