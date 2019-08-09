@@ -31,7 +31,7 @@ class NotesController < ApplicationController
     def edit
         @client = Client.find(params[:client_id])
         @note = Note.find(params[:id])
-        if @note.user_id == current_user.id
+        if note_authorized?
             render :edit
         else
             flash[:error] = "You cannot edit another user's note."
@@ -42,11 +42,11 @@ class NotesController < ApplicationController
     def update
         @client = Client.find(params[:client_id])
         @note = Note.find(params[:id])
-        if @note.user_id == current_user.id
+        if note_authorized?
             @note.update(note_params)
             redirect_to client_note_url(@client, @note)
         else
-            flash[:error] = "You cannot edit another user's note."
+            flash[:error] = "You cannot update another user's note."
             redirect_to client_note_url(@client, @note)
         end
     end
@@ -54,8 +54,13 @@ class NotesController < ApplicationController
     def destroy
         @client = Client.find(params[:client_id])
         @note = Note.find(params[:id])
-        @note.delete
-        redirect_to client_notes_url(@client)
+        if note_authorized?
+            @note.delete
+            redirect_to client_notes_url(@client)
+        else
+            flash[:error] = "You cannot delete another user's note."
+            redirect_to client_note_url(@client, @note)
+        end
     end
 
     private

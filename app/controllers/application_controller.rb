@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
         current_user.id == @user.id
     end
 
+    def note_authorized?
+        current_user.id == @note.user.id
+    end
+
     def current_user
         @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end
