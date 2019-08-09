@@ -18,6 +18,10 @@ class ClientsController < ApplicationController
         @client = Client.find(params[:id])
     end
 
+    def unassigned
+        @clients = Client.unassigned
+    end
+
     private
 
     def client_params

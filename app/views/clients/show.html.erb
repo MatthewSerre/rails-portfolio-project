@@ -1,2 +1,6 @@
 <%= link_to "Client Notes", client_notes_url(@client) %>
-<%= link_to "Case Manager", user_caseload_url(@client.caseload) %>
+<% if @client.caseload %>
+    <%= link_to "Case Manager", user_caseload_url(@client.caseload) %>
+<% else %>
+    "Unassigned to a caseload"
+<% end %>

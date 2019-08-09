@@ -12,7 +12,7 @@
   </div>
 
   <%= f.label :case_manager %>
-  <%= f.collection_select(:caseload_id, Caseload.all, :id, :case_manager, {}, { :class => 'browser-default' }) %>
+  <%= f.collection_select(:caseload_id, Caseload.all, :id, :case_manager, { :include_blank => true }, { :class => 'browser-default' }) %>
   <%= f.submit "Create Client" %>
 
 <% end %>

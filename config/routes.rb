@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :caseloads
   end
 
+  get '/clients/unassigned', to: "clients#unassigned", as: "/clients/unassigned"
+
   resources :clients do
     resources :notes
   end
@@ -21,5 +23,6 @@ Rails.application.routes.draw do
   get 'register', to: "users#new", as: 'register'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
+
 
 end
