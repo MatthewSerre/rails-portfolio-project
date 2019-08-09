@@ -1,5 +1,5 @@
-Current Clients:
-<ul>
+<ul class="collection">
+    <li class="collection-item">Current Clients</li>
 <% @caseload.clients.each do |client| %>
     <li><%= link_to client.name, client_url(client) %></li>
 <% end %>

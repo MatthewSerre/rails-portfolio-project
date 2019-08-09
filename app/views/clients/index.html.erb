@@ -1,5 +1,5 @@
-<ul>
-<% @clients.each do |client| %>
-    <li><%= link_to "#{client.name}", client %></li>
+<ul class="collection">
+<% @clients.sort_by(&:name).each do |client| %>
+    <li class="collection-item"><%= link_to "#{client.name}", client %></li>
 <% end %>
 </ul>

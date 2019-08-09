@@ -46,6 +46,13 @@ class NotesController < ApplicationController
         end
     end
 
+    def destroy
+        @client = Client.find(params[:client_id])
+        @note = Note.find(params[:client_id])
+        @note.delete
+        redirect_to client_notes_url(@client)
+    end
+
     private
 
     def note_params

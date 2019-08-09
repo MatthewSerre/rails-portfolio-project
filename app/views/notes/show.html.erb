@@ -7,3 +7,5 @@
     <li class="collection-item"><%= @note.content %></li>
 </ul>
 
+<%= link_to "Edit Note", edit_client_note_url(@note.client, @note), :class => "waves-effect waves-light btn" %>
+<%= link_to "Delete Note", client_note_url(@note.client, @note), method: :delete, :class => "waves-effect waves-light btn" %>
