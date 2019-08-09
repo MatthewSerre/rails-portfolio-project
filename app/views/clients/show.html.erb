@@ -1,9 +1,10 @@
 <ul class="collection">
-<% if @client.caseload %>
-    <li class="collection-item">Case Manager: <%= link_to @client.caseload.user.name, user_caseload_url(@client.caseload) %></li>
-<% else %>
-    <li class="collection-item">Case Manager: Unassigned</li>
-<% end %>
-<li class="collection-item"><%= link_to "Client Notes", client_notes_url(@client) %></li>
-<li class="collection-item"><%= link_to "Edit Client Information", edit_client_url(@client) %></li>
+    <li class="collection-item"><h6><strong><%= @client.name %></strong></h6></li>
+    <% if @client.caseload %>
+        <li class="collection-item">Case Manager: <%= link_to @client.caseload.user.name, user_caseload_url(@client.caseload) %></li>
+    <% else %>
+        <li class="collection-item">Case Manager: Unassigned</li>
+    <% end %>
+    <li class="collection-item"><%= link_to "Client Notes", client_notes_url(@client) %></li>
+    <li class="collection-item"><%= link_to "Edit Client Information", edit_client_url(@client) %></li>
 </ul>

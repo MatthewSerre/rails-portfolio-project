@@ -8,4 +8,4 @@
 </ul>
 
 <%= link_to "Edit Note", edit_client_note_url(@note.client, @note), :class => "waves-effect waves-light btn" %>
-<%= link_to "Delete Note", client_note_url(@note.client, @note), method: :delete, :class => "waves-effect waves-light btn" %>
+<%= link_to "Delete Note", client_note_url(@note.client, @note), method: :delete, data: {confirm: "Are you sure?"}, :class => "waves-effect waves-light btn" %>
