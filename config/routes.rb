@@ -3,9 +3,11 @@ Rails.application.routes.draw do
 
   root to: "users#index"
 
+  resources :caseloads, only: [:index]
+
   resources :users do
     resources :clients, except: [:show]
-    resources :caseloads
+    resources :caseloads, only: [:show, :edit, :update]
   end
 
   get '/clients/unassigned', to: "clients#unassigned", as: "/clients/unassigned"

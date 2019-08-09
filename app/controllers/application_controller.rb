@@ -2,24 +2,21 @@ class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
     helper_method :current_user
     helper_method :require_login
+    helper_method :authorized?
   
-    def authenticate
-        redirect_to "/signin" unless user_signed_in?
+    def authorized?
+        current_user.id == @user.id
     end
-  
+
     def current_user
         @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end
 
     def require_login
-        if session[:user_id]
+        if current_user
         else
           flash[:error] = "You must be signed in to view this page."
           redirect_to '/signin'
         end
-    end
-  
-    def user_signed_in?
-        !!current_user
     end
 end
