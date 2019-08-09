@@ -4,12 +4,8 @@ class ApplicationController < ActionController::Base
     helper_method :require_login
     helper_method :authorized?
   
-    def authorized?
-        current_user.id == @user.id
-    end
-
-    def note_authorized?
-        current_user.id == @note.user.id
+    def authorized(user)
+        current_user.id == user.id
     end
 
     def current_user

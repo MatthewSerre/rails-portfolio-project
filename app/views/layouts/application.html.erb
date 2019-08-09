@@ -36,6 +36,7 @@
         <ul class="tabs tabs-transparent">
           <li class="tab"><%= link_to "My Account", current_user %></li>
           <li class="tab"><%= link_to "My Caseload", user_caseload_url(current_user, current_user.caseload) %></li>
+          <li class="tab"><%= link_to "All Caseloads", caseloads_url %></li>
         </ul>
       </div>
       <% end %>

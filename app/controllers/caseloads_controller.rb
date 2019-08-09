@@ -8,7 +8,7 @@ class CaseloadsController < ApplicationController
     def edit
         @user = User.find(params[:user_id])
         @caseload = @user.caseload
-        if authorized?
+        if authorized(@user)
             render :edit
         else
             flash[:error] = "You cannot edit another user's caseload."
@@ -20,9 +20,14 @@ class CaseloadsController < ApplicationController
         @user = User.find(params[:user_id])
         @caseload = @user.caseload
         client = Client.find(params[:caseload][:client_ids])
-        client.caseload_id = @caseload.id
-        client.save
-        redirect_to user_caseload_url(@user, @caseload)
+        if authorized(@user)
+            client.caseload_id = @caseload.id
+            client.save
+            redirect_to user_caseload_url(@user, @caseload)
+        else
+            flash[:error] = "You cannot update another user's caseload."
+            redirect_to caseloads_url
+        end
     end
 
     def show
