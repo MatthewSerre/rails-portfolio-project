@@ -20,7 +20,7 @@ class ClientsController < ApplicationController
 
     def edit
         @client = Client.find(params[:id])
-        if authorized(@client.caseload.user)
+        if @client.caseload.nil? || (@client.caseload && authorized(@client.caseload.user))
             render :edit
         else
             flash[:error] = "You cannot edit another user's client."
@@ -30,7 +30,7 @@ class ClientsController < ApplicationController
 
     def update
         @client = Client.find(params[:id])
-        if authorized(@client.caseload.user)
+        if @client.caseload.nil? || (@client.caseload && authorized(@client.caseload.user))
             @client.update(client_params)
             if @client.errors.any?
                 render :edit

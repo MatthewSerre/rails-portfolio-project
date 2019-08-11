@@ -18,7 +18,7 @@ Specs:
 - [x] Include form display of validation errors (form URL e.g. /recipes/new) - Forms display full error messages when an action cannot be completed for authorization and/or validation issues.
 
 Confirm:
-- [x] The application is pretty DRY - Maybe...
+- [x] The application is pretty DRY
 - [x] Limited logic in controllers
 - [x] Views use helper methods if appropriate
 - [x] Views use partials if appropriate - Several forms or lists are extracted to partials.

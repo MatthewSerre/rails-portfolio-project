@@ -3,7 +3,6 @@ class NotesController < ApplicationController
     
     def index
         @client = Client.find(params[:client_id])
-        @notes = @client.notes
     end
 
     def new
@@ -24,8 +23,8 @@ class NotesController < ApplicationController
     end
 
     def show
-        @client = Client.find(params[:client_id])
-        @note = @client.notes.find(params[:id])
+        client = Client.find(params[:client_id])
+        @note = client.notes.find(params[:id])
     end
 
     def edit

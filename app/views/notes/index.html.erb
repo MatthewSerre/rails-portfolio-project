@@ -1,12 +1,12 @@
 <ul class="collection">
         <li class="collection-item"><strong>Notes for <%= link_to @client.name, @client %></strong></li>
-        <% if @notes.empty? %>
+        <% if @client.notes.empty? %>
                 <li class="collection-item">No notes.  <%= link_to "Create one?", new_client_note_url(@client) %></li>
                 </ul>
         <% else %>
                 </ul>
                 <ol class="collection">
-                        <% @notes.each do |note| %>
+                        <% @client.notes.each do |note| %>
                                 <li class="collection-item"><%= link_to "#{note.date} note", client_note_path(@client, note) %> by <%= link_to note.user.name, user_path(note.user) %></li>
                         <% end %>
                 </ol>

@@ -17,13 +17,13 @@ class SessionsController < ApplicationController
             else
                 Caseload.find_or_create_by(user_id: @user.id)
                 session[:user_id] = @user.id
-                redirect_to @user
+                redirect_to root_url
             end
         else
             @user = User.find_by(email: params[:user][:email])
             if @user && @user.authenticate(params[:user][:password])
                 session[:user_id] = @user.id
-                redirect_to @user
+                redirect_to root_url
             else
                 flash[:error] = "User name and/or password was left blank or incorrect.  Please try again."
                 redirect_to signin_url
