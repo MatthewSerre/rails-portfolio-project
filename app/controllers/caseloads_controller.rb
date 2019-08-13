@@ -8,9 +8,7 @@ class CaseloadsController < ApplicationController
     def edit
         @user = User.find(params[:user_id])
         @caseload = @user.caseload
-        if authorized(@user)
-            render :edit
-        else
+        unless authorized(@user)
             flash[:error] = "You cannot edit another user's caseload."
             redirect_to caseloads_url
         end

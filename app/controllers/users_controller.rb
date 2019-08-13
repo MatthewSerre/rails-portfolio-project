@@ -24,6 +24,10 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
     end
 
+    def most_active_user
+        @user = User.most_active_user
+    end
+
     private
 
     def user_params

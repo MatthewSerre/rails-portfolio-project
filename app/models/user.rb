@@ -11,6 +11,8 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: VALID_EMAIL_REGEX }
     validates :password, presence: true, length: { minimum: 6 }
 
+    scope :most_active_user, -> { joins(:notes).select("users.*, count(notes.id) as ncount").group("users.id").order("ncount DESC").first }
+
     def name
         "#{self.first_name} #{self.last_name}"
     end

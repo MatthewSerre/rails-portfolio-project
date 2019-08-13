@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get '/clients/unassigned', to: "clients#unassigned", as: "/clients/unassigned"
 
+  get '/most-active-user', to: "users#most_active_user", as: "/most-active-user"
+
   resources :clients do
     resources :notes
   end

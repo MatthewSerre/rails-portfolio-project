@@ -1,5 +1,6 @@
 class ClientsController < ApplicationController
     before_action :require_login
+    before_action :set_client, only: [:edit, :update, :show]
     
     def index
         @clients = Client.all
@@ -11,6 +12,7 @@ class ClientsController < ApplicationController
 
     def create
         @client = Client.create(client_params)
+        # Refactor to Client.new and if @client.save
         if @client.errors.any?
             render :new
         else
@@ -19,7 +21,6 @@ class ClientsController < ApplicationController
     end
 
     def edit
-        @client = Client.find(params[:id])
         if @client.caseload.nil? || (@client.caseload && authorized(@client.caseload.user))
             render :edit
         else
@@ -29,10 +30,10 @@ class ClientsController < ApplicationController
     end
 
     def update
-        @client = Client.find(params[:id])
         if @client.caseload.nil? || (@client.caseload && authorized(@client.caseload.user))
             @client.update(client_params)
             if @client.errors.any?
+                # if @client.update
                 render :edit
             else
                 redirect_to client_path(@client)
@@ -44,7 +45,6 @@ class ClientsController < ApplicationController
     end
 
     def show
-        @client = Client.find(params[:id])
     end
 
     def unassigned
@@ -55,6 +55,10 @@ class ClientsController < ApplicationController
 
     def client_params
         params.require(:client).permit(:first_name, :last_name, :caseload_id)
+    end
+
+    def set_client
+        @client = Client.find(params[:id])
     end
 
 end
