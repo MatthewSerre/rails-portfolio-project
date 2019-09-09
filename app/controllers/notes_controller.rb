@@ -1,17 +1,14 @@
 class NotesController < ApplicationController
-    before_action :require_login
+    before_action :require_login, :set_client
     
     def index
-        @client = Client.find(params[:client_id])
     end
 
     def new
-        @client = Client.find(params[:client_id])
         @note = Note.new
     end
 
     def create
-        @client = Client.find(params[:client_id])
         @note = @client.notes.new(note_params)
         @note.user_id = current_user.id
         @note.save
@@ -23,12 +20,10 @@ class NotesController < ApplicationController
     end
 
     def show
-        client = Client.find(params[:client_id])
         @note = client.notes.find(params[:id])
     end
 
     def edit
-        @client = Client.find(params[:client_id])
         @note = Note.find(params[:id])
         if authorized(@note.user)
             render :edit
@@ -39,7 +34,6 @@ class NotesController < ApplicationController
     end
 
     def update
-        @client = Client.find(params[:client_id])
         @note = Note.find(params[:id])
         if authorized(@note.user)
             @note.update(note_params)
@@ -51,7 +45,6 @@ class NotesController < ApplicationController
     end
 
     def destroy
-        @client = Client.find(params[:client_id])
         @note = Note.find(params[:id])
         if authorized(@note.user)
             @note.delete
@@ -66,6 +59,10 @@ class NotesController < ApplicationController
 
     def note_params
         params.require(:note).permit(:date, :length_in_minutes, :content, :user_id, :client_id)
+    end
+
+    def set_client
+        @client = Client.find(params[:client_id])
     end
 
 end
