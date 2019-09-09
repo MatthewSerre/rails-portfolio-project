@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
-    before_action :require_login, :set_client
+    before_action :require_login
+    before_action :set_client
     
     def index
     end
@@ -20,7 +21,8 @@ class NotesController < ApplicationController
     end
 
     def show
-        @note = client.notes.find(params[:id])
+        @note = @client.notes.find(params[:id])
+        render json: @note
     end
 
     def edit
