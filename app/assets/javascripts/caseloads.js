@@ -8,7 +8,7 @@ const bindClickHandlers = () => {
         fetch(`/caseloads.json`)
             .then((res) => res.json())
             .then(caseloads => {
-                $('#app-container').html('<ul class="collection" id="caseloads_index"></ul>')
+                $('#app-container').html('<ol class="collection" id="caseloads_index"></ol>')
                 caseloads.forEach(caseload => {
                     let newCaseload = new Caseload(caseload)
                     let caseloadHtml = newCaseload.formatIndex()

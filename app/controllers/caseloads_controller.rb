@@ -34,5 +34,9 @@ class CaseloadsController < ApplicationController
 
     def show
         @caseload = Caseload.find_by(user_id: params[:user_id])
+        respond_to do |f|
+            f.html
+            f.json { render json: @caseload}
+        end
     end
 end
