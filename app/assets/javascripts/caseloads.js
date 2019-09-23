@@ -16,6 +16,17 @@ const bindClickHandlers = () => {
                 })
             })
     })
+
+    $(document).on('click', '.show_link', function (e) {
+        e.preventDefault()
+        let userId = $(this).attr('data-user-id')
+        let caseloadId = $(this).attr('data-caseload-id')
+        fetch(`/users/${userId}/caseloads/${caseloadId}.json`)
+        .then((res) => res.json())
+        .then(caseload => {
+            console.log(caseload)
+        })
+    })
 }
 
 function Caseload(caseload) {
@@ -26,7 +37,7 @@ function Caseload(caseload) {
 
 Caseload.prototype.formatIndex = function() {
     let caseloadHtml = `
-        <li><a href="/users/${this.user.id}/caseloads/${this.id}">${this.user.first_name} ${this.user.last_name}'s caseload</a></li>
+        <li><a href="/users/${this.user.id}/caseloads/${this.id}" data-caseload-id="${this.id}" data-user-id="${this.user.id}" class="show_link">${this.user.first_name} ${this.user.last_name}'s caseload</a></li>
     `
     return caseloadHtml
 }
