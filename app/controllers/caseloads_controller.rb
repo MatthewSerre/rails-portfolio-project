@@ -3,6 +3,10 @@ class CaseloadsController < ApplicationController
 
     def index
         @caseloads = Caseload.all
+        respond_to do |f|
+            f.html
+            f.json { render json: @caseloads }
+        end
     end
 
     def edit

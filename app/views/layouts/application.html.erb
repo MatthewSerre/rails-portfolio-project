@@ -5,8 +5,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all'%>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'caseloads' %>
   </head>
 
   <body>
@@ -36,11 +37,12 @@
         <ul class="tabs tabs-transparent">
           <li class="tab"><%= link_to "My Account", current_user %></li>
           <li class="tab"><%= link_to "My Caseload", user_caseload_url(current_user, current_user.caseload) %></li>
-          <li class="tab"><%= link_to "All Caseloads", caseloads_url %></li>
+          <li class="tab"><%= link_to "All Caseloads", caseloads_url, class: "all_caseloads" %></li>
         </ul>
       </div>
       <% end %>
     </nav>
+    <div id="app-container">
     <%= yield %>
 
 
@@ -74,6 +76,7 @@
         <li class="collection-item"><%= flash[:error] %></li>
       </ul>
     <% end %>
+  </div>
   </body>
 </html>
   

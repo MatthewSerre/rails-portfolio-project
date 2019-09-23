@@ -11,8 +11,8 @@ class ClientsController < ApplicationController
     end
 
     def create
-        @client = Client.create(client_params)
-        # Refactor to Client.new and if @client.save
+        @client = Client.new(client_params)
+        @client.save
         if @client.errors.any?
             render :new
         else
@@ -31,12 +31,10 @@ class ClientsController < ApplicationController
 
     def update
         if @client.caseload.nil? || (@client.caseload && authorized(@client.caseload.user))
-            @client.update(client_params)
-            if @client.errors.any?
-                # if @client.update
-                render :edit
-            else
+            if @client.update(client_params)
                 redirect_to client_path(@client)
+            else
+                render :edit
             end
         else
             flash[:error] = "You cannot update another user's client."
@@ -45,6 +43,13 @@ class ClientsController < ApplicationController
     end
 
     def show
+        # respond_to do |format|
+
+        #     # format.html
+        #     format.json { render json: @client }
+          
+        #    end
+           render json: @client
     end
 
     def unassigned
