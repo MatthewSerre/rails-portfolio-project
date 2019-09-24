@@ -24,10 +24,11 @@ const bindClickHandlers = () => {
         fetch(`/users/${userId}/caseloads/${caseloadId}.json`)
             .then((res) => res.json())
             .then(caseload => {
+                $('#app-container').html('')
                 $('#app-container').html('<ol class="collection" id="caseload_show"></ol>')
                 let currentCaseload = new Caseload(caseload)
                 currentCaseload.clients.forEach(client => {
-                    let caseloadHtml = newCaseload.formatShow()
+                    let caseloadHtml = currentCaseload.formatShow(client)
                     $('#caseload_show').append(caseloadHtml)
                 })
             })
@@ -47,9 +48,9 @@ Caseload.prototype.formatIndex = function() {
     return caseloadHtml
 }
 
-Caseload.prototype.formatShow = function() {
+Caseload.prototype.formatShow = function(client) {
     let caseloadHtml = `
-        <li><a href="/clients/${this.clients.id}/caseloads/${this.id}" data-caseload-id="${this.id}" data-user-id="${this.user.id}" class="show_link">${this.user.first_name} ${this.user.last_name}'s caseload</a></li>
+        <li><a href="/clients/${client.id}">${client.first_name} ${client.last_name}</a></li>
     `
     return caseloadHtml
 }
