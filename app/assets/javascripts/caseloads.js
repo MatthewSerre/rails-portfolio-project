@@ -50,7 +50,7 @@ Caseload.prototype.formatIndex = function() {
 
 Caseload.prototype.formatShow = function(client) {
     let caseloadHtml = `
-        <li><a href="/clients/${client.id}">${client.first_name} ${client.last_name}</a></li>
+        <li><a href="/clients/${client.id}">${client.first_name} ${client.last_name}</a> | <a href="/clients/${client.id}/notes/new">New Note</a></li>
     `
     return caseloadHtml
 }
