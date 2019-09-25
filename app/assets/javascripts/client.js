@@ -6,7 +6,6 @@ const clientSubmit = () => {
 
     $("#client_form").on('submit', function (e) {
         e.preventDefault()
-        console.log('submitting form')
 
         const values = $(this).serialize()
 
@@ -15,6 +14,22 @@ const clientSubmit = () => {
             const newClient = new Client(data)
             const clientHtml = newClient.formatShow()
             $('#app-container').append(clientHtml)
+            console.log(newClient)
         })
     })
+}
+
+function Client(client) {
+    this.id = client.id
+    this.caseload = client.caseload
+    this.first_name = client.first_name
+    this.last_name = client.last_name
+}
+
+Client.prototype.formatShow = function() {
+    let clientHtml = `
+        <h1>Balls!</h1>
+        <p>${this.caseload.user}</p>
+    `
+    return clientHtml
 }
