@@ -1,6 +1,6 @@
 # Case Manager on Rails
 
-Case Manager on Rails is the tentative title for my Rails portfolio project for the Flatiron School online curriculum.  Case Manager allows users to register and sign in and create, read, update, and delete a variety of models, including clients, notes, and caseloads.
+Case Manager on Rails is my Rails portfolio project for the Flatiron School online curriculum and now includes JavaScript functionality to improve load times for the caseloads and new clients.  Case Manager allows users to register and sign in and create, read, update, and delete a variety of models, including clients, notes, and caseloads.
 
 ## Getting Started
 
