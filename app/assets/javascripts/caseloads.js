@@ -36,7 +36,10 @@ const bindClickHandlers = () => {
             })
     })
 
-    
+    $("#client_form").on('submit', function (e) {
+        e.preventDefault()
+        console.log('submitting form')
+    })
 }
 
 function Caseload(caseload) {
