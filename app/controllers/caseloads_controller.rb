@@ -1,6 +1,8 @@
 class CaseloadsController < ApplicationController
     before_action :require_login
 
+    # /app/controllers/caseloads_controller.rb
+
     def index
         @caseloads = Caseload.all
         respond_to do |f|

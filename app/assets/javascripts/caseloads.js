@@ -1,3 +1,5 @@
+// /app/assets/javascripts/caseloads.js
+
 $(() => {
     bindClickHandlers()
 })
@@ -33,6 +35,8 @@ const bindClickHandlers = () => {
                 })
             })
     })
+
+    
 }
 
 function Caseload(caseload) {

@@ -1,3 +1,5 @@
+# /app/serializers/caseload_serializer.rb
+
 class CaseloadSerializer < ActiveModel::Serializer
   attributes :id
 
