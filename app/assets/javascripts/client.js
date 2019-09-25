@@ -11,6 +11,7 @@ const clientSubmit = () => {
 
         $.post("/clients", values).done(function(data) {
             $('#app-container').html('')
+            console.log(data)
             const newClient = new Client(data)
             const clientHtml = newClient.formatShow()
             $('#app-container').append(clientHtml)
@@ -21,6 +22,7 @@ const clientSubmit = () => {
 function Client(client) {
     this.id = client.id
     this.caseload = client.caseload
+    this.user_id = client.caseload.user_id
     this.first_name = client.first_name
     this.last_name = client.last_name
 }
@@ -29,6 +31,7 @@ Client.prototype.formatShow = function() {
     let clientHtml = `
     <ul class="collection">
     <li class="collection-item"><h6><strong>${this.first_name} ${this.last_name}</strong></h6></li>
+    <li class="collection-item"><a href="/users/${this.user_id}/caseloads/${this.id}">Case Manager</a></li>
     <li class="collection-item"><a href="/clients/${this.id}/notes">Client Notes</a></li>
     <li class="collection-item"><a href="/clients/${this.id}/edit">Edit Client Information</a></li>
     `
