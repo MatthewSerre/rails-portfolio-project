@@ -12,11 +12,10 @@ class ClientsController < ApplicationController
 
     def create
         @client = Client.new(client_params)
-        @client.save
-        if @client.errors.any?
-            render :new
+        if @client.save
+            render json: @client
         else
-            redirect_to client_path(@client)
+            render :new
         end
     end
 
