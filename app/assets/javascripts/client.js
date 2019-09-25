@@ -11,7 +11,6 @@ const clientSubmit = () => {
 
         $.post("/clients", values).done(function(data) {
             $('#app-container').html('')
-            console.log(data)
             const newClient = new Client(data)
             const clientHtml = newClient.formatShow()
             $('#app-container').append(clientHtml)
