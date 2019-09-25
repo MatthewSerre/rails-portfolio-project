@@ -14,7 +14,6 @@ const clientSubmit = () => {
             const newClient = new Client(data)
             const clientHtml = newClient.formatShow()
             $('#app-container').append(clientHtml)
-            console.log(newClient)
         })
     })
 }
@@ -28,8 +27,10 @@ function Client(client) {
 
 Client.prototype.formatShow = function() {
     let clientHtml = `
-        <h1>Balls!</h1>
-        <p>${this.caseload.user}</p>
+    <ul class="collection">
+    <li class="collection-item"><h6><strong>${this.first_name} ${this.last_name}</strong></h6></li>
+    <li class="collection-item"><a href="/clients/${this.id}/notes">Client Notes</a></li>
+    <li class="collection-item"><a href="/clients/${this.id}/edit">Edit Client Information</a></li>
     `
     return clientHtml
 }
