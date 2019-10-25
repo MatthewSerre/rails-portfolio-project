@@ -16,7 +16,7 @@ Contributions and suggestions are welcome; just open an issue on the repository 
 
 ## Authors
 
-* **Matthew Serre** - *Initial work* - [BusterStatus](https://github.com/BusterStatus)
+* **Matthew Serre** - *Initial work* - [MatthewSerre](https://github.com/MatthewSerre)
 
 ## License
 
