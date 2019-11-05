@@ -1,5 +1,6 @@
 {
   "name": "rails-portfolio-project",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "version": "0.0.0"
 }
