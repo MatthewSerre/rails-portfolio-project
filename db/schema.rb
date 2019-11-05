@@ -10,10 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_08_205051) do
+ActiveRecord::Schema.define(version: 20194) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "caseloads", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_caseloads_on_user_id"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 2019_08_08_205051) do
   create_table "clients", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.integer "caseload_id", default: 0
+    t.bigint "caseload_id", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["caseload_id"], name: "index_clients_on_caseload_id"
@@ -32,8 +35,8 @@ ActiveRecord::Schema.define(version: 2019_08_08_205051) do
     t.string "date"
     t.integer "length_in_minutes"
     t.string "content"
-    t.integer "user_id"
-    t.integer "client_id"
+    t.bigint "user_id"
+    t.bigint "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_notes_on_client_id"
@@ -51,4 +54,7 @@ ActiveRecord::Schema.define(version: 2019_08_08_205051) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "clients", "caseloads"
+  add_foreign_key "notes", "clients"
+  add_foreign_key "notes", "users"
 end
