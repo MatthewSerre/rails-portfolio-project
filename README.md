@@ -1,18 +1,20 @@
 # Case Manager on Rails
 
-Case Manager on Rails is my Rails portfolio project for the Flatiron School online curriculum and now includes JavaScript functionality to improve load times for the caseloads and new clients.  Case Manager allows users to register and sign in and create, read, update, and delete a variety of models, including clients, notes, and caseloads.
+Case Manager on Rails is a minimum viable product created for a prospective non-profit client that provides programming for people with disabilities.  The application allows case managers to maintain caseloads and write notes for the individuals they serve.  The app includes avaScript functionality to improve load times for the caseloads and new clients pages.  Case Manager on Rails allows users to register and sign in and create, read, update, and delete a variety of models, including clients, notes, and caseloads.  Check out a [live demo](https://case-manager-on-rails.herokuapp.com/).
 
-## Getting Started
+[![case-manager-on-rails-demo](http://img.youtube.com/vi/ge2LVZ1lEeg/0.jpg)](http://www.youtube.com/watch?v=ge2LVZ1lEeg "Case Manager on Rails Demo")
 
-Fork and clone the repository to your local device.
+## Prerequisites/Installation
 
-### Installing
-
-Run bundle install to install the gems necessary for the app to run and run rails s to spin up a server.
+1. Install and configure PostgreSQL
+2. Clone the repository
+3. Run `bundle install` or similar in the main directory
+4. Run `rails db:create` and `rails db:migrate`
+5. Run `rails s` to start the application
 
 ## Contributing
 
-Contributions and suggestions are welcome; just open an issue on the repository page and I will have a look.  Thank you!
+If you have any feedback or want to contribute, then feel free to reach out to me and/or open an issue/pull request.
 
 ## Authors
 
